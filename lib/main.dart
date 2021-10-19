@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'widgets/musicplayer.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,9 +12,10 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Welcome to Flutter'),
         ),
-        body: const Column (
-          children: Text('Hello World'),
-        ),
+        body: Column(children: const [
+          Text('Hello World'),
+          MusicPLayer(filePath: "hei"),
+        ]),
       ),
     );
   }
