@@ -23,7 +23,6 @@ class _MusicPlayerState extends State<MusicPlayer> {
   void openPlayer() async {
     var duration = await player.setAsset('assets/sounds/MackyGeeTour.mp3');
     await player.setLoopMode(LoopMode.one);
-    print(duration);
   }
 
   @override
@@ -38,30 +37,30 @@ class _MusicPlayerState extends State<MusicPlayer> {
           if (processingState == ProcessingState.loading ||
               processingState == ProcessingState.buffering) {
             return Container(
-              margin: EdgeInsets.all(8.0),
+              margin: const EdgeInsets.all(8.0),
               width: 32.0,
               height: 32.0,
-              child: CircularProgressIndicator(),
+              child: const CircularProgressIndicator(),
             );
           } else if (playing != true) {
             return IconButton(
               icon: const Text(
                 "Macky Gee - Tour",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 120),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 100),
               ),
-              iconSize: 512.0,
+              iconSize: 390.0,
               onPressed: player.play,
             );
           } else if (processingState != ProcessingState.completed) {
             return IconButton(
-              icon: Icon(Icons.pause),
-              iconSize: 512.0,
+              icon: const Icon(Icons.pause),
+              iconSize: 300.0,
               onPressed: player.pause,
             );
           } else {
             return IconButton(
               icon: const Icon(Icons.replay),
-              iconSize: 64.0,
+              iconSize: 430.0,
               onPressed: () => player.seek(Duration.zero),
             );
           }
