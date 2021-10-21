@@ -10,8 +10,18 @@ class MusicPLayer extends StatefulWidget {
   _MusicPLayerState createState() => _MusicPLayerState();
 }
 
-class _MusicPLayerState extends State<MusicPLayer> {
-  int counter = 0;
+class _MusicPLayerState extends State<MusicPLayer>
+    with SingleTickerProviderStateMixin {
+  //int counter = 0;
+  late AnimationController iconController;
+  AssetsAudioPlayer player = AssetsAudioPlayer();
+
+  @override
+  void initState() {
+    super.initState();
+    Audio aud = Audio('assets/sounds/MackyGeeTour.mp3');
+    player.open(aud);
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         ),
         body: Column(children: const [
           Text('Hello World'),
-          MusicPLayer(filePath: "hei"),
+          MusicPLayer(filePath: 'assets/sounds/MackyGeeTour.mp3'),
         ]),
       ),
     );
