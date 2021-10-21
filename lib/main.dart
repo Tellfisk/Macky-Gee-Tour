@@ -9,13 +9,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Welcome to Flutter',
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Welcome to Flutter'),
-        ),
-        body: Column(children: const [
-          Text('Hello World'),
-          MusicPLayer(filePath: 'assets/sounds/MackyGeeTour.mp3'),
-        ]),
+        body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: const [
+              MusicPlayer(filePath: 'assets/sounds/MackyGeeTour.mp3'),
+            ]),
       ),
     );
   }
