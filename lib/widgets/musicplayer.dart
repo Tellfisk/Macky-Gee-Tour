@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:assets_audio_player/assets_audio_player.dart';
+import 'package:just_audio/just_audio.dart';
 
 class MusicPLayer extends StatefulWidget {
   final String filePath;
@@ -10,21 +10,25 @@ class MusicPLayer extends StatefulWidget {
   _MusicPLayerState createState() => _MusicPLayerState();
 }
 
-class _MusicPLayerState extends State<MusicPLayer>
-    with SingleTickerProviderStateMixin {
-  //int counter = 0;
-  late AnimationController iconController;
-  AssetsAudioPlayer player = AssetsAudioPlayer();
+class _MusicPLayerState extends State<MusicPLayer> {
+  int counter = 0;
+  final player = AudioPlayer();
 
   @override
   void initState() {
     super.initState();
-    Audio aud = Audio('assets/sounds/MackyGeeTour.mp3');
-    player.open(aud);
+    openPlayer();
+  }
+
+  void openPlayer() async {
+    var duration = await player.setAsset('assets/sounds/MackyGeeTour.mp3');
+    player.play();
+    await player.setLoopMode(LoopMode.one);
+    print(duration);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Text("Yooooo");
   }
 }
